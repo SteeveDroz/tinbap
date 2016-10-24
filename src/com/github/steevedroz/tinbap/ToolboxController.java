@@ -3,6 +3,7 @@ package com.github.steevedroz.tinbap;
 import java.io.IOException;
 
 import com.github.steevedroz.phonebookjava.PhoneBook;
+import com.github.steevedroz.tinbap.components.Transistor;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

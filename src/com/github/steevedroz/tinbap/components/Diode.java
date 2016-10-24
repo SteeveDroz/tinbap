@@ -1,4 +1,8 @@
-package com.github.steevedroz.tinbap;
+package com.github.steevedroz.tinbap.components;
+
+import com.github.steevedroz.tinbap.Component;
+import com.github.steevedroz.tinbap.Connector;
+import com.github.steevedroz.tinbap.IOType;
 
 public class Diode extends Component {
     private static final String NAME = "Diode";
