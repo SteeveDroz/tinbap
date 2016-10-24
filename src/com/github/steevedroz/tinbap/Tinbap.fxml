@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import com.github.steevedroz.tinbap.ToolboxController?>
+<?import com.github.steevedroz.tinbap.WorkbenchController?>
 
-<fx:root type="BorderPane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <Canvas height="200.0" width="200.0" BorderPane.alignment="CENTER" />
-   </center>
-   <bottom>
-      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="205.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" text="Transistor" />
-         </children>
-      </HBox>
-   </bottom>
+<fx:root type="BorderPane" xmlns="http://javafx.com/javafx/8.0.65"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<center>
+		<WorkbenchController />
+	</center>
+	<bottom>
+		<ToolboxController />
+	</bottom>
 </fx:root>
