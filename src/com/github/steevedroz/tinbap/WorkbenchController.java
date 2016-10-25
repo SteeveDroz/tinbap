@@ -4,16 +4,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.steevedroz.tinbap.components.Component;
+import com.github.steevedroz.tinbap.view.component.ComponentWidget;
 
 import javafx.animation.AnimationTimer;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
-public class WorkbenchController extends Canvas {
+public class WorkbenchController extends Pane {
     private AnimationTimer timer;
-    private List<Component> components;
-    private Component current;
+    private List<ComponentWidget> components;
+    private ComponentWidget current;
 
     public WorkbenchController() {
 	this.timer = new AnimationTimer() {
@@ -24,7 +26,7 @@ public class WorkbenchController extends Canvas {
 	    }
 	};
 	this.timer.start();
-	this.components = new ArrayList<Component>();
+	this.components = new ArrayList<ComponentWidget>();
 	this.current = null;
 	try {
 	    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/github/steevedroz/tinbap/Workbench.fxml"));
@@ -36,12 +38,22 @@ public class WorkbenchController extends Canvas {
 	}
     }
 
-    private void update() {
+    @FXML
+    public void placeComponent(MouseEvent event) {
 	if (current != null) {
+	    components.add(current);
+	    getChildren().add(current.getNode());
+	    current = null;
 	}
     }
 
-    public void setCurrent(Component current) {
+    private void update() {
+	if (current != null) {
+	}
+	components.forEach(component -> component.update());
+    }
+
+    public void setCurrent(ComponentWidget current) {
 	this.current = current;
     }
 }
