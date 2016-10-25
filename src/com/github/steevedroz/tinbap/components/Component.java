@@ -1,4 +1,4 @@
-package com.github.steevedroz.tinbap;
+package com.github.steevedroz.tinbap.components;
 
 public abstract class Component {
     private String name;
