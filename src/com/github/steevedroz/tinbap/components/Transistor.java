@@ -22,10 +22,13 @@ public class Transistor extends Component {
 	this.collector = new Connector("Collector", IOType.BOTH);
 	this.emitter = new Connector("Emitter", IOType.BOTH);
 	this.threshold = threshold;
+	this.connectors.add(this.base);
+	this.connectors.add(this.emitter);
+	this.connectors.add(this.collector);
     }
 
     @Override
-    public void eval() {
+    protected void eval() {
 	if (base.getVoltage() > threshold) {
 	    double maxVoltage = Math.max(collector.getVoltage(), emitter.getVoltage());
 	    collector.setVoltage(maxVoltage);

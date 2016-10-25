@@ -13,10 +13,12 @@ public class Wire extends Component {
 	super(NAME);
 	this.left = new Connector(IOType.BOTH);
 	this.right = new Connector(IOType.BOTH);
+	this.connectors.add(this.left);
+	this.connectors.add(this.right);
     }
 
     @Override
-    public void eval() {
+    protected void eval() {
 	double max = Math.max(left.getVoltage(), right.getVoltage());
 	left.setVoltage(max);
 	right.setVoltage(max);

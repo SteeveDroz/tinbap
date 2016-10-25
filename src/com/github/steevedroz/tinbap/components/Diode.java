@@ -13,10 +13,12 @@ public class Diode extends Component {
 	super(NAME);
 	this.in = new Connector("In", IOType.IN);
 	this.out = new Connector("Out", IOType.OUT);
+	this.connectors.add(this.in);
+	this.connectors.add(this.out);
     }
 
     @Override
-    public void eval() {
+    protected void eval() {
 	out.setVoltage(Math.max(in.getVoltage(), out.getVoltage()));
     }
 }

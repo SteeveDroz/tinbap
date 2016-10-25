@@ -19,12 +19,14 @@ public class Resistor extends Component {
 	super(NAME);
 
 	this.resistivity = resisitvity;
-	left = new Connector(IOType.BOTH);
-	right = new Connector(IOType.BOTH);
+	this.left = new Connector(IOType.BOTH);
+	this.right = new Connector(IOType.BOTH);
+	this.connectors.add(this.left);
+	this.connectors.add(this.right);
     }
 
     @Override
-    public void eval() {
+    protected void eval() {
 	if (left.getVoltage() > right.getVoltage()) {
 	    right.setVoltage(Math.min(right.getVoltage(), left.getVoltage() - resistivity));
 	} else {

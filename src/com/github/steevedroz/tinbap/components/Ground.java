@@ -11,10 +11,11 @@ public class Ground extends Component {
     public Ground() {
 	super(NAME);
 	this.collector = new Connector(IOType.IN);
+	this.connectors.add(this.collector);
     }
 
     @Override
-    public void eval() {
+    protected void eval() {
 	collector.setVoltage(0);
     }
 }

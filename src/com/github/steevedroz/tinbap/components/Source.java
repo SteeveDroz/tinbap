@@ -8,7 +8,7 @@ public class Source extends Component {
     private static final double VOLTAGE = 5.0;
 
     private double voltage;
-    private Connector out;
+    private Connector emitter;
 
     public Source() {
 	this(VOLTAGE);
@@ -17,12 +17,13 @@ public class Source extends Component {
     public Source(double voltage) {
 	super(NAME);
 	this.voltage = voltage;
-	this.out = new Connector(IOType.OUT);
+	this.emitter = new Connector(IOType.OUT);
+	this.connectors.add(this.emitter);
     }
 
     @Override
-    public void eval() {
-	out.setVoltage(voltage);
+    protected void eval() {
+	emitter.setVoltage(voltage);
     }
 
     public double getVoltage() {

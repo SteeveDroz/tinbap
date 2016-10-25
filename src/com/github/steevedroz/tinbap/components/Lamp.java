@@ -20,10 +20,12 @@ public class Lamp extends Component {
 	this.left = new Connector(IOType.BOTH);
 	this.right = new Connector(IOType.BOTH);
 	this.threshold = threshold;
+	this.connectors.add(this.left);
+	this.connectors.add(this.right);
     }
 
     @Override
-    public void eval() {
+    protected void eval() {
 	if (isOn()) {
 	    Connector in = (left.getVoltage() > right.getVoltage()) ? left : right;
 	    Connector out = (left.getVoltage() > right.getVoltage()) ? right : left;
