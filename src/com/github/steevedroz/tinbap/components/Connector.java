@@ -1,12 +1,17 @@
-package com.github.steevedroz.tinbap;
+package com.github.steevedroz.tinbap.components;
 
-public class Connector {
+import com.github.steevedroz.tinbap.IOType;
+
+public class Connector extends Component {
+    private static final String NAME = "Connector";
+
     private String name;
     private IOType type;
     private double voltage;
     private Connector connector;
 
     public Connector(IOType type) {
+	super(NAME);
 	this.type = type;
     }
 
@@ -69,5 +74,10 @@ public class Connector {
 	if (connector != null && this.canReceive()) {
 	    this.setVoltage(Math.max(connector.getVoltage(), this.getVoltage()));
 	}
+    }
+
+    @Override
+    protected void eval() {
+	send();
     }
 }

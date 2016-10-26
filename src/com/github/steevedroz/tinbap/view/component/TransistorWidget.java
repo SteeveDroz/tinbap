@@ -16,4 +16,10 @@ public class TransistorWidget extends ComponentWidget {
 	setLayout(x - 10, y - 10);
     }
 
+    @Override
+    protected void drawWidget() {
+	// TODO Auto-generated method stub
+
+    }
+
 }

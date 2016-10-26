@@ -9,6 +9,7 @@ public abstract class ComponentWidget extends Pane {
 
     public ComponentWidget(Component component) {
 	this.component = component;
+	drawWidget();
     }
 
     public void update() {
@@ -29,4 +30,6 @@ public abstract class ComponentWidget extends Pane {
     }
 
     public abstract void setCenter(double x, double y);
+
+    protected abstract void drawWidget();
 }

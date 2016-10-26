@@ -2,8 +2,6 @@ package com.github.steevedroz.tinbap.components;
 
 import java.util.List;
 
-import com.github.steevedroz.tinbap.Connector;
-
 public class PinPoint extends Component {
     private static final String NAME = "Pin point";
 

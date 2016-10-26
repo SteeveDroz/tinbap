@@ -3,8 +3,6 @@ package com.github.steevedroz.tinbap.components;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.steevedroz.tinbap.Connector;
-
 public abstract class Component {
     private String name;
     protected List<Connector> connectors;
