@@ -3,7 +3,11 @@ package com.github.steevedroz.tinbap;
 import java.io.IOException;
 
 import com.github.steevedroz.phonebookjava.PhoneBook;
+import com.github.steevedroz.tinbap.view.component.ComponentWidget;
 import com.github.steevedroz.tinbap.view.component.DiodeWidget;
+import com.github.steevedroz.tinbap.view.component.LampWidget;
+import com.github.steevedroz.tinbap.view.component.ResistorWidget;
+import com.github.steevedroz.tinbap.view.component.TransistorWidget;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,20 +28,25 @@ public class ToolboxController extends HBox {
 
     @FXML
     public void transistor() {
-	// TODO ((WorkbenchController)
-	// PhoneBook.call("workbench")).setCurrent(new Transistor());
+	setCurrent(new TransistorWidget());
     }
 
     @FXML
     public void diode() {
-	((WorkbenchController) PhoneBook.call("workbench")).setCurrent(new DiodeWidget());
+	setCurrent(new DiodeWidget());
     }
 
     @FXML
     public void lamp() {
+	setCurrent(new LampWidget());
     }
 
     @FXML
     public void resistor() {
+	setCurrent(new ResistorWidget());
+    }
+
+    private void setCurrent(ComponentWidget componentWidget) {
+	((WorkbenchController) PhoneBook.call("workbench")).setCurrent(componentWidget);
     }
 }

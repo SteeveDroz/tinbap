@@ -41,8 +41,9 @@ public class WorkbenchController extends Pane {
     @FXML
     public void placeComponent(MouseEvent event) {
 	if (current != null) {
+	    current.setCenter(event.getX(), event.getY());
 	    components.add(current);
-	    getChildren().add(current.getNode());
+	    getChildren().add(current);
 	    current = null;
 	}
     }

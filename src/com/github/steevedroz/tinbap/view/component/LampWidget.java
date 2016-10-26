@@ -1,13 +1,13 @@
 package com.github.steevedroz.tinbap.view.component;
 
-import com.github.steevedroz.tinbap.components.Diode;
+import com.github.steevedroz.tinbap.components.Lamp;
 
 import javafx.scene.shape.Circle;
 
-public class DiodeWidget extends ComponentWidget {
+public class LampWidget extends ComponentWidget {
 
-    public DiodeWidget() {
-	super(new Diode());
+    public LampWidget() {
+	super(new Lamp());
 	getChildren().add(new Circle(10, 10, 10));
     }
 
@@ -15,4 +15,5 @@ public class DiodeWidget extends ComponentWidget {
     public void setCenter(double x, double y) {
 	setLayout(x - 10, y - 10);
     }
+
 }
