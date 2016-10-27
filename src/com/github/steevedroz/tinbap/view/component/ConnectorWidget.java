@@ -1,21 +1,40 @@
 package com.github.steevedroz.tinbap.view.component;
 
+import com.github.steevedroz.phonebookjava.PhoneBook;
 import com.github.steevedroz.tinbap.IOType;
+import com.github.steevedroz.tinbap.WorkbenchController;
 import com.github.steevedroz.tinbap.components.Connector;
 
+import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class ConnectorWidget extends ComponentWidget {
     private static final double SIZE = 3.0;
 
-    public ConnectorWidget() {
-	super(new Connector(IOType.BOTH));
+    public ConnectorWidget(IOType type) {
+	super(new Connector(type));
+	setOnMouseClicked(event -> {
+	    ConnectorWidget connector = (ConnectorWidget) PhoneBook.call("selected-connector");
+	    if (connector == null) {
+		PhoneBook.addEntry("selected-connector", this);
+	    } else if (connector == this) {
+		PhoneBook.removeEntry("selected-connector");
+	    } else {
+		((WorkbenchController) PhoneBook.call("workbench")).addComponent(new WireWidget(connector, this));
+	    }
+	});
+	drawWidget();
     }
 
     @Override
     public void setCenter(double x, double y) {
 	setLayout(x - SIZE, y - SIZE);
+    }
+
+    @Override
+    public Connector getComponent() {
+	return (Connector) super.getComponent();
     }
 
     @Override
@@ -29,4 +48,8 @@ public class ConnectorWidget extends ComponentWidget {
 	circle.setOnMouseExited(event -> circle.setFill(Color.WHITE));
     }
 
+    @Override
+    public Point2D getAbsoluteLayout() {
+	return super.getAbsoluteLayout().add(new Point2D(SIZE, SIZE));
+    }
 }

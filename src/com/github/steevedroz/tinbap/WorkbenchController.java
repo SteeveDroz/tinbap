@@ -42,10 +42,14 @@ public class WorkbenchController extends Pane {
     public void placeComponent(MouseEvent event) {
 	if (current != null) {
 	    current.setCenter(event.getX(), event.getY());
-	    components.add(current);
-	    getChildren().add(current);
+	    addComponent(current);
 	    current = null;
 	}
+    }
+
+    public void addComponent(ComponentWidget component) {
+	components.add(component);
+	getChildren().add(component);
     }
 
     private void update() {

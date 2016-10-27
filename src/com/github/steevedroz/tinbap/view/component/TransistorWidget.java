@@ -17,6 +17,11 @@ public class TransistorWidget extends ComponentWidget {
     }
 
     @Override
+    public Transistor getComponent() {
+	return (Transistor) super.getComponent();
+    }
+
+    @Override
     protected void drawWidget() {
 	// TODO Auto-generated method stub
 

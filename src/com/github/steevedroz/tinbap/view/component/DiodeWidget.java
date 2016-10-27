@@ -1,5 +1,6 @@
 package com.github.steevedroz.tinbap.view.component;
 
+import com.github.steevedroz.tinbap.IOType;
 import com.github.steevedroz.tinbap.components.Diode;
 
 import javafx.scene.paint.Color;
@@ -10,11 +11,17 @@ public class DiodeWidget extends ComponentWidget {
 
     public DiodeWidget() {
 	super(new Diode());
+	drawWidget();
     }
 
     @Override
     public void setCenter(double x, double y) {
 	setLayout(x - 20, y - 10);
+    }
+
+    @Override
+    public Diode getComponent() {
+	return (Diode) super.getComponent();
     }
 
     @Override
@@ -31,11 +38,11 @@ public class DiodeWidget extends ComponentWidget {
 	Line output = new Line(30, 10, 40, 10);
 	getChildren().add(output);
 
-	ConnectorWidget inputConnector = new ConnectorWidget();
+	ConnectorWidget inputConnector = new ConnectorWidget(IOType.IN);
 	inputConnector.setCenter(0, 10);
 	getChildren().add(inputConnector);
 
-	ConnectorWidget outputWidget = new ConnectorWidget();
+	ConnectorWidget outputWidget = new ConnectorWidget(IOType.OUT);
 	outputWidget.setCenter(40, 10);
 	getChildren().add(outputWidget);
     }

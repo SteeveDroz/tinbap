@@ -17,9 +17,14 @@ public class ResistorWidget extends ComponentWidget {
     }
 
     @Override
+    public Resistor getComponent() {
+	return (Resistor) super.getComponent();
+    }
+
+    @Override
     protected void drawWidget() {
 	// TODO Auto-generated method stub
-	
+
     }
 
 }

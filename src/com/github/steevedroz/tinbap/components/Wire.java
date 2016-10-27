@@ -16,6 +16,14 @@ public class Wire extends Component {
 	this.connectors.add(this.right);
     }
 
+    public Connector getLeft() {
+	return left;
+    }
+
+    public Connector getRight() {
+	return right;
+    }
+
     @Override
     protected void eval() {
 	double max = Math.max(left.getVoltage(), right.getVoltage());

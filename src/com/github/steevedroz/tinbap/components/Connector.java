@@ -46,6 +46,11 @@ public class Connector extends Component {
 	}
     }
 
+    public void pair(Connector other) {
+	this.connector = other;
+	other.connector = this;
+    }
+
     public String getName() {
 	return name;
     }

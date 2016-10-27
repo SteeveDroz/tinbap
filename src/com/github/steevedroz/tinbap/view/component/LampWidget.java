@@ -17,9 +17,14 @@ public class LampWidget extends ComponentWidget {
     }
 
     @Override
+    public Lamp getComponent() {
+	return (Lamp) super.getComponent();
+    }
+
+    @Override
     protected void drawWidget() {
 	// TODO Auto-generated method stub
-	
+
     }
 
 }
