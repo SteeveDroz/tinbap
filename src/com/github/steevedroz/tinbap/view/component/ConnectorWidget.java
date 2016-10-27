@@ -22,6 +22,7 @@ public class ConnectorWidget extends ComponentWidget {
 		PhoneBook.removeEntry("selected-connector");
 	    } else {
 		((WorkbenchController) PhoneBook.call("workbench")).addComponent(new WireWidget(connector, this));
+		PhoneBook.removeEntry("selected-connector");
 	    }
 	});
 	drawWidget();
