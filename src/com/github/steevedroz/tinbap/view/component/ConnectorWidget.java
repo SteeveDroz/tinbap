@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class ConnectorWidget extends ComponentWidget {
-    private static final double SIZE = 3.0;
+    private static final double SIZE = 4.0;
 
     public ConnectorWidget(IOType type) {
 	super(new Connector(type));
