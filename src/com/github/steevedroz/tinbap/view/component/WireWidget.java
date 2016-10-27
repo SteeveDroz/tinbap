@@ -2,6 +2,7 @@ package com.github.steevedroz.tinbap.view.component;
 
 import com.github.steevedroz.tinbap.components.Wire;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class WireWidget extends ComponentWidget {
@@ -32,6 +33,10 @@ public class WireWidget extends ComponentWidget {
     protected void drawWidget() {
 	Line line = new Line(source.getAbsoluteLayout().getX(), source.getAbsoluteLayout().getY(),
 		destination.getAbsoluteLayout().getX(), destination.getAbsoluteLayout().getY());
+	line.setStroke(Color.GREEN);
+	line.setOnMouseEntered(event -> line.setStrokeWidth(3.0));
+	line.setOnMouseExited(event -> line.setStrokeWidth(1.0));
+	line.setOnMouseClicked(event -> getChildren().remove(line));
 	getChildren().add(line);
     }
 }
