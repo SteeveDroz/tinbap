@@ -39,6 +39,13 @@ public class WorkbenchController extends Pane {
     }
 
     @FXML
+    public void moveComponent(MouseEvent event) {
+	if (current != null) {
+	    current.setCenter(event.getX(), event.getY());
+	}
+    }
+
+    @FXML
     public void placeComponent(MouseEvent event) {
 	if (current != null) {
 	    current.setCenter(event.getX(), event.getY());
@@ -49,7 +56,9 @@ public class WorkbenchController extends Pane {
 
     public void addComponent(ComponentWidget component) {
 	components.add(component);
-	getChildren().add(component);
+	if (getChildren().indexOf(component) == -1) {
+	    getChildren().add(component);
+	}
     }
 
     private void update() {
@@ -60,5 +69,7 @@ public class WorkbenchController extends Pane {
 
     public void setCurrent(ComponentWidget current) {
 	this.current = current;
+	current.setCenter(Integer.MIN_VALUE, Integer.MIN_VALUE);
+	getChildren().add(current);
     }
 }
