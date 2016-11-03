@@ -2,6 +2,7 @@ package com.github.steevedroz.tinbap.view.component;
 
 import com.github.steevedroz.tinbap.components.Wire;
 
+import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -22,6 +23,12 @@ public class WireWidget extends ComponentWidget {
     public void setCenter(double x, double y) {
 	setLayout(x - source.getLayoutX() + destination.getLayoutX(),
 		y - source.getLayoutY() + destination.getLayoutY());
+    }
+
+    @Override
+    public Point2D getCenter() {
+	return new Point2D(getLayoutX() + source.getLayoutX() + destination.getLayoutX(),
+		getLayoutY() + source.getLayoutY() + destination.getLayoutY());
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.github.steevedroz.tinbap.view.component;
 import com.github.steevedroz.tinbap.IOType;
 import com.github.steevedroz.tinbap.components.Resistor;
 
+import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -17,6 +18,11 @@ public class ResistorWidget extends ComponentWidget {
     @Override
     public void setCenter(double x, double y) {
 	setLayout(x - 10, y - 10);
+    }
+
+    @Override
+    public Point2D getCenter() {
+	return new Point2D(getLayoutX() + 10, getLayoutY() + 10);
     }
 
     @Override

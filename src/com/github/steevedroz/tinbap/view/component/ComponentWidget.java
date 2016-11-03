@@ -45,5 +45,7 @@ public abstract class ComponentWidget extends Pane {
 
     public abstract void setCenter(double x, double y);
 
+    public abstract Point2D getCenter();
+
     protected abstract void drawWidget();
 }

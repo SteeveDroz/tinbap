@@ -36,6 +36,11 @@ public class ConnectorWidget extends ComponentWidget {
     }
 
     @Override
+    public Point2D getCenter() {
+	return new Point2D(getLayoutX() + SIZE, getLayoutY() + SIZE);
+    }
+
+    @Override
     public Connector getComponent() {
 	return (Connector) super.getComponent();
     }

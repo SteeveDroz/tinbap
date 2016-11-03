@@ -3,12 +3,12 @@ package com.github.steevedroz.tinbap.view.component;
 import com.github.steevedroz.tinbap.IOType;
 import com.github.steevedroz.tinbap.components.Diode;
 
+import javafx.geometry.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 
 public class DiodeWidget extends ComponentWidget {
-
     public DiodeWidget() {
 	super(new Diode());
 	drawWidget();
@@ -17,6 +17,11 @@ public class DiodeWidget extends ComponentWidget {
     @Override
     public void setCenter(double x, double y) {
 	setLayout(x - 20, y - 10);
+    }
+
+    @Override
+    public Point2D getCenter() {
+	return new Point2D(getLayoutX() + 20, getLayoutY() + 10);
     }
 
     @Override
