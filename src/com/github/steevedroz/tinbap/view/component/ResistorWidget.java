@@ -1,14 +1,17 @@
 package com.github.steevedroz.tinbap.view.component;
 
+import com.github.steevedroz.tinbap.IOType;
 import com.github.steevedroz.tinbap.components.Resistor;
 
-import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 
 public class ResistorWidget extends ComponentWidget {
 
     public ResistorWidget() {
 	super(new Resistor());
-	getChildren().add(new Circle(10, 10, 10));
+	drawWidget();
     }
 
     @Override
@@ -23,8 +26,20 @@ public class ResistorWidget extends ComponentWidget {
 
     @Override
     protected void drawWidget() {
-	// TODO Auto-generated method stub
-
+	Rectangle rectangle = new Rectangle(10, 5, 20, 10);
+	rectangle.setFill(null);
+	rectangle.setStroke(Color.BLACK);
+	getChildren().add(rectangle);
+	Line leftLine = new Line(0, 10, 10, 10);
+	getChildren().add(leftLine);
+	Line rightLine = new Line(30, 10, 40, 10);
+	getChildren().add(rightLine);
+	ConnectorWidget connectorLeft = new ConnectorWidget(IOType.BOTH);
+	connectorLeft.setCenter(0, 10);
+	getChildren().add(connectorLeft);
+	ConnectorWidget connectorRight = new ConnectorWidget(IOType.BOTH);
+	connectorRight.setCenter(40, 10);
+	getChildren().add(connectorRight);
     }
 
 }
