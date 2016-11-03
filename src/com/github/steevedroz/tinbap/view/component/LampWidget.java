@@ -1,19 +1,22 @@
 package com.github.steevedroz.tinbap.view.component;
 
+import com.github.steevedroz.tinbap.IOType;
 import com.github.steevedroz.tinbap.components.Lamp;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 
 public class LampWidget extends ComponentWidget {
 
     public LampWidget() {
 	super(new Lamp());
-	getChildren().add(new Circle(10, 10, 10));
+	drawWidget();
     }
 
     @Override
     public void setCenter(double x, double y) {
-	setLayout(x - 10, y - 10);
+	setLayout(x - 20, y - 10);
     }
 
     @Override
@@ -23,8 +26,26 @@ public class LampWidget extends ComponentWidget {
 
     @Override
     protected void drawWidget() {
-	// TODO Auto-generated method stub
-
+	Circle circle = new Circle(20, 10, 10);
+	circle.setFill(null);
+	circle.setStroke(Color.BLACK);
+	getChildren().add(circle);
+	Line leftLine = new Line(0, 10, 10, 10);
+	getChildren().add(leftLine);
+	Line rightLine = new Line(30, 10, 40, 10);
+	getChildren().add(rightLine);
+	Line cross1 = new Line(10, 10, 30, 10);
+	cross1.setRotate(45);
+	getChildren().add(cross1);
+	Line cross2 = new Line(10, 10, 30, 10);
+	cross2.setRotate(-45);
+	getChildren().add(cross2);
+	ConnectorWidget connectorLeft = new ConnectorWidget(IOType.BOTH);
+	connectorLeft.setCenter(0, 10);
+	getChildren().add(connectorLeft);
+	ConnectorWidget connectorRight = new ConnectorWidget(IOType.BOTH);
+	connectorRight.setCenter(40, 10);
+	getChildren().add(connectorRight);
     }
 
 }
