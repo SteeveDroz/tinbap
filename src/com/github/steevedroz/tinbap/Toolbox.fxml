@@ -11,5 +11,7 @@
 		<Button mnemonicParsing="false" onAction="#diode" text="Diode" />
 		<Button mnemonicParsing="false" onAction="#lamp" text="Lamp" />
 		<Button mnemonicParsing="false" onAction="#resistor" text="Resistor" />
+		<Button mnemonicParsing="false" onAction="#source" text="Source" />
+		<Button mnemonicParsing="false" onAction="#ground" text="Ground" />
 	</children>
 </fx:root>

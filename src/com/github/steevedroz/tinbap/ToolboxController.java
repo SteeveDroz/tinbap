@@ -7,6 +7,7 @@ import com.github.steevedroz.tinbap.view.component.ComponentWidget;
 import com.github.steevedroz.tinbap.view.component.DiodeWidget;
 import com.github.steevedroz.tinbap.view.component.LampWidget;
 import com.github.steevedroz.tinbap.view.component.ResistorWidget;
+import com.github.steevedroz.tinbap.view.component.SourceWidget;
 import com.github.steevedroz.tinbap.view.component.TransistorWidget;
 
 import javafx.fxml.FXML;
@@ -44,6 +45,16 @@ public class ToolboxController extends HBox {
     @FXML
     public void resistor() {
 	setCurrent(new ResistorWidget());
+    }
+
+    @FXML
+    public void source() {
+	setCurrent(new SourceWidget());
+    }
+
+    @FXML
+    public void ground() {
+	//TODO setCurrent(new GroundWidget());
     }
 
     private void setCurrent(ComponentWidget componentWidget) {
