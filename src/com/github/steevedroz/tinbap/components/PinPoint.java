@@ -2,6 +2,7 @@ package com.github.steevedroz.tinbap.components;
 
 import java.util.List;
 
+@Deprecated
 public class PinPoint extends Component {
     private static final String NAME = "Pin point";
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.steevedroz.tinbap.view.component.ComponentWidget;
+import com.github.steevedroz.tinbap.view.component.ConnectorWidget;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
@@ -51,6 +52,11 @@ public class WorkbenchController extends Pane {
 	    current.setCenter(event.getX(), event.getY());
 	    addComponent(current);
 	    current = null;
+	} else {
+	    ConnectorWidget connector = new ConnectorWidget(IOType.BOTH);
+	    connector.setCenter(event.getX(), event.getY());
+	    addComponent(connector);
+	    connector.click();
 	}
     }
 

@@ -15,19 +15,24 @@ public class ConnectorWidget extends ComponentWidget {
     public ConnectorWidget(IOType type) {
 	super(new Connector(type));
 	setOnMouseClicked(event -> {
-	    ConnectorWidget connector = (ConnectorWidget) PhoneBook.call("selected-connector");
-	    if (connector == null) {
-		PhoneBook.addEntry("selected-connector", this);
-	    } else if (connector == this) {
-		PhoneBook.removeEntry("selected-connector");
-	    } else {
-		WireWidget wireWidget = new WireWidget(connector, this);
-		((WorkbenchController) PhoneBook.call("workbench")).addComponent(wireWidget);
-		wireWidget.setPickOnBounds(false);
-		PhoneBook.removeEntry("selected-connector");
-	    }
+	    click();
+	    event.consume();
 	});
 	drawWidget();
+    }
+
+    public void click() {
+	ConnectorWidget connector = (ConnectorWidget) PhoneBook.call("selected-connector");
+	if (connector == null) {
+	    PhoneBook.addEntry("selected-connector", this);
+	} else if (connector == this) {
+	    PhoneBook.removeEntry("selected-connector");
+	} else {
+	    WireWidget wireWidget = new WireWidget(connector, this);
+	    ((WorkbenchController) PhoneBook.call("workbench")).addComponent(wireWidget);
+	    wireWidget.setPickOnBounds(false);
+	    PhoneBook.removeEntry("selected-connector");
+	}
     }
 
     @Override

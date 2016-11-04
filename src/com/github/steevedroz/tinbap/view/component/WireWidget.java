@@ -43,7 +43,10 @@ public class WireWidget extends ComponentWidget {
 	line.setStroke(Color.GREEN);
 	line.setOnMouseEntered(event -> line.setStrokeWidth(3.0));
 	line.setOnMouseExited(event -> line.setStrokeWidth(1.0));
-	line.setOnMouseClicked(event -> getChildren().remove(line));
+	line.setOnMouseClicked(event -> {
+	    getChildren().remove(line);
+	    event.consume();
+	});
 	getChildren().add(line);
     }
 }
