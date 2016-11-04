@@ -1,5 +1,8 @@
 package com.github.steevedroz.tinbap.components;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.github.steevedroz.tinbap.IOType;
 
 public class Connector extends Component {
@@ -8,11 +11,12 @@ public class Connector extends Component {
     private String name;
     private IOType type;
     private double voltage;
-    private Connector connector;
+    private List<Connector> connectors;
 
     public Connector(IOType type) {
 	super(NAME);
 	this.type = type;
+	this.connectors = new ArrayList<Connector>();
     }
 
     public Connector(String name, IOType type) {
@@ -21,8 +25,10 @@ public class Connector extends Component {
     }
 
     public void send() {
-	if (connector != null && this.canSend()) {
-	    connector.receive();
+	for (Connector connector : connectors) {
+	    if (connector != null && this.canSend()) {
+		connector.receive(this);
+	    }
 	}
     }
 
@@ -47,8 +53,8 @@ public class Connector extends Component {
     }
 
     public void pair(Connector other) {
-	this.connector = other;
-	other.connector = this;
+	this.connectors.add(other);
+	other.connectors.add(this);
     }
 
     public String getName() {
@@ -75,7 +81,7 @@ public class Connector extends Component {
 	this.voltage = Math.max(voltage, 0);
     }
 
-    private void receive() {
+    private void receive(Connector connector) {
 	if (connector != null && this.canReceive()) {
 	    this.setVoltage(Math.max(connector.getVoltage(), this.getVoltage()));
 	}
